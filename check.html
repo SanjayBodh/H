@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Form</title>
+<link rel="icon" type="image" href="icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Permanent+Marker&family=Playfair+Display&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<style>
+ body {
+            font-family: Arial, sans-serif;
+            margin 0;
+            padding 0;
+font-family: 'Playfair Display', serif;
+font-family 'Permanent Marker';
+height:auto;
+width100%;
+background:white;;
+}
+.discrip{
+width:100%;
+height:250px;
+background:tomato;
+border-radius:10px;
+}
+/* Slideshow container */
+.slideshow-container {
+  max-width 1000px;
+height:300px;
+  position: relative;
+  margin: auto;
+}
+.slideshow-container img{
+height:300px;
+object-fit:cover;
+border-radius:10px;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+
+
+
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 8px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  flex: 25%;
+  max-width: 35%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+
+
+
+
+
+.swiper {
+      width: 100%;
+      height: 370px;
+      background: #000;
+border-radius:10px;
+    }
+
+    .swiper-slide {
+      font-size: 18px;
+      color: #fff;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      padding: 40px 60px;
+    }
+
+    .parallax-bg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 130%;
+      height: 100%;
+      -webkit-background-size: cover;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .swiper-slide .title {
+      font-size: 47px;
+      font-weight: 300;
+position:relative;
+left:100px;
+    }
+
+    .swiper-slide .subtitle {
+      font-size: 23px;
+      position:relative;
+left:100px;
+    }
+
+    .swiper-slide .text {
+      font-size: 17px;
+      max-width: 600px;
+      line-height: 1.3;
+    }
+
+
+
+
+
+.hello{
+position:relative;
+top:30px;
+width:100%;
+height500px;
+backgroundgreen;
+z-index:1;
+}
+.c{
+color:white;
+font-size:20px;
+}
+.f select{
+border:none;
+color:black;
+border-radius:5px;
+background:skyblue;
+}
+#reservationForm label,#myForm label{
+color:black;
+}
+.button-flex{
+display:flex;
+gap:1rem;
+}
+label{
+font-weight:bold;
+color:white;
+}
+.form-align{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:green;
+width:500px;
+height:450px;
+display:flex;
+justify-content:center;
+background:white;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+padding:20px;
+border-radius:10px;
+}
+input[type="email"]{
+width:200px;
+}
+.name,.location{
+display:flex;
+gap:1rem;
+}
+input[type="number"]{
+text-align:center;
+}
+.date-flex,.adult-flex{
+display:flex;
+gap:1rem;
+}
+ .button {
+            font-size: 20px;
+            cursor: pointer;
+position:absolute;
+top:43%;
+right:10%;0;
+font-weight:bold;
+background:tomato;
+padding:3px 10px;
+border-radius:5px;
+        }
+.buttonmin {
+            font-size: 20px;
+            cursor: pointer;
+position:absolute;
+top:43%;
+left:10%;0;
+font-weight:bold;
+background:tomato;
+padding:3px 10px;
+border-radius:5px;
+        }
+.num{
+position:relative;
+backgroundgreen;
+width130px;
+}
+
+#reservationResult{
+background:tomato;
+position:relative;
+top:30px;
+sont-size:30px;
+font-weight:bold;
+padding:20px;
+border-radius:10px;
+z-index:3;
+}
+#step3{
+backgroundtomato;
+position:fixed;
+width:100%;
+height:100vh;
+}
+#reservationResultt{
+position:relative;
+top:30px;
+}
+#displayData{
+border-bottom:2px solid black;
+}
+ .formDataLabel {
+            color: black; 
+            margin-right: 5px;
+position:absolute;
+left:10%;
+font-weight:bold;
+font-size:20px;
+
+        }
+
+        .formDataValue {
+            color: #333; 
+            margin-bottom: 10px;
+           position:absolute;
+left:30%;
+font-size:18px;
+        }
+
+
+
+
+ #hiddenDiv {
+      display: none;
+      background-color: lightblue;
+      padding: 20px;
+      margin-top: 20px;
+      transition: opacity 0.5s ease-in-out; /* Add a transition for opacity */
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:200px;
+height:200px;
+border-radius:50%;
+text-align:center;
+
+    }
+input{
+width:170px;
+height:30px;
+border:none;
+font-size:13px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+outline:none;
+}
+input[type="date"]{
+text-align:center;
+width:30px;
+height:30px;
+color:transparent;
+position:absolute;
+right:0;
+background-image:url("cal.jpeg");
+background-size:cover;
+border:1px solid black;
+filter:invert(100%);
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.flex{
+display:flex;
+gap:1rem;
+justify-content:center;
+background:#00A9FF;
+padding:30px 20px;
+border-radius:10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+button{
+height:35px;
+border:none;
+position:relative;
+top:20px;
+font-size:14px;
+color:black;
+border-radius:5px;
+background:white;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+#myForm{
+width:400px;
+height:400px;
+display:grid;
+gap:1rem;
+place-itemscenter;
+align-itemscenter;
+
+}
+#myForm button{
+width:100px;
+}
+.f{
+display:flex;
+}
+#confirmation{
+height:20px;
+}
+#button4:disabled,#button3:disabled,#button2:disabled,#button1:disabled {
+            background-color: #D0D4CA;
+            color: white;
+        }
+@media(max-width:768px){
+.flex{
+display:grid;
+}
+.formDataLabel {
+            color: black; 
+            margin-right: 5px;
+position:absolute;
+left:5%;
+font-weight:bold;
+font-size:13px;
+
+        }
+
+        .formDataValue {
+            color: #333; 
+            margin-bottom: 10px;
+           position:absolute;
+left:50%;
+font-size:13px;
+        }
+input{
+width:130px;
+}
+.adult-flex,.date-flex{
+display:flex;
+gap:1rem;
+}
+#myForm input{
+width:250px;
+}
+.name{
+display:grid;
+gap:1rem;
+}
+.location{
+display:grid;
+gap:1rem;
+}
+.form-align{
+width:300px;
+height:500px;
+padding:20px 0px;
+backgroundgreen;
+}
+#myForm{
+width:270px;
+backgroundyellow;
+align-itemscenter;
+place-itemscenter;
+}
+.column {
+    flex: 50%;
+    max-width: 30.5%;
+  }
+.column img{
+border-radius:5px;
+}
+ .swiper-slide .title {
+      font-size: 41px;
+      font-weight: 300;
+position:relative;
+left:15px;
+    }
+
+    .swiper-slide .subtitle {
+      font-size: 21px;
+position:relative;
+left:15px;
+    }
+
+    .swiper-slide .text {
+      font-size: 14px;
+      max-width: 250px;
+      line-height: 1.3;
+position:relative;
+right:20px;
+    }
+}
+
+
+
+</style>
+<body>
+<div id="step1">
+<h2>RESERVATION</h2>
+<form id="reservationForm">
+<div class="discrip"><h1>Hotel Discription<h1><br><h2>Hotel Sunscross</h2></div>
+<br>
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 3</div>
+    <img src="img1.jpeg" style="width:100%">
+    <div class="text">Caption Text</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 3</div>
+    <img src="img2.jpeg" style="width:100%">
+    <div class="text">Caption Two</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+    <img src="img3.jpeg" style="width:100%">
+    <div class="text">Caption Three</div>
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+
+
+
+
+
+
+    <div class="flex">
+<div class="date-flex">
+<div id="d" style="position:relative">
+<label for="checkInDate">Check-in Date</label><br>
+    <input type="date" id="checkInDate" onchange="callcalculate()" required>
+    <input type="text" id="displayDate" name="displayDate" placeholder="DD/MM/YY"  readonly>
+</div>
+
+<div id="d" style="position:relative">
+<label for="checkOutDate">Check-out Date</label><br>
+    <input type="date" id="checkOutDate" onchange="displaySelectedDatee()" required>
+    <input type="text" id="displayDatee" name="displayDate" placeholder="DD/MM/YY" readonly>
+   
+</div>
+ </div>
+
+<div class="adult-flex">
+<div class="num">
+<label for="Adults">Adults</label><br>
+<input type="number" id="adults" value="1" min="1" max="20" readonly>
+    <div class="button" onclick="incrementNumber()">+</div>
+    <div class="buttonmin" onclick="incrementNumberminus()">-</div>
+</div>
+<div class="num">
+    <label for="children">Children</label><br>
+    <input type="number" id="children" min="0" value="0" max="20" readonly>
+    <div class="button" onclick="incrementNumbertwo()">+</div>
+    <div class="buttonmin" onclick="incrementNumberminustwo()">-</div>
+</div>
+</div>
+    <button id="button4"  type="button"  onclick="callnextbutton()">Calculate Total</button>
+
+<button id="button1" type="button"  onclick="showStep2()">Next</button>
+</div>
+<div id="reservationResult">Data</div>
+<div class="hello">
+ <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper">
+    <div class="parallax-bg" style="background-image: url(img.jpeg);" data-swiper-parallax="-23%"></div>
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="title" data-swiper-parallax="-300">Slide 1</div>
+        <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+        <div class="text" data-swiper-parallax="-100">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+            dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
+            laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
+            Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
+            Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
+            ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
+            tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+          </p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="title" data-swiper-parallax="-300">Slide 2</div>
+        <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+        <div class="text" data-swiper-parallax="-100">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+            dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
+            laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
+            Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
+            Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
+            ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
+            tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+          </p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="title" data-swiper-parallax="-300">Slide 3</div>
+        <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+        <div class="text" data-swiper-parallax="-100">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+            dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
+            laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
+            Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
+            Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
+            ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
+            tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+
+<div class="row"> 
+  <div class="column">
+    <img src="img.jpeg">
+    <img src="img1.jpeg">
+    <img src="img2.jpeg">
+    <img src="img3.jpeg">
+    <img src="img4.jpeg">
+  </div>
+<div class="column">
+    <img src="img1.jpeg">
+    <img src="img3.jpeg">
+    <img src="img4.jpeg">
+    <img src="img.jpeg">
+    <img src="img2.jpeg">
+  </div>
+  <div class="column">
+   <img src="img3.jpeg">
+    <img src="img.jpeg">
+    <img src="img4.jpeg">
+    <img src="img2.jpeg">
+    <img src="img1.jpeg">
+  </div> 
+</div>
+
+</div>
+</form>
+</div>
+
+
+
+
+
+<div id="step2" style="display: none;">
+    <h2>Step 2 Additional Details</h2>
+
+<div class="form-align">
+ <form id="myForm">
+  <div class="name"> 
+<div class="f">  
+        <input type="text" id="name" name="name" placeholder="Name"   required><br>
+</div>
+<div class="f" >
+        
+        <input type="text" id="surname" name="surname" placeholder="surname"  required><br>
+</div>
+</div>
+<div class="f" >
+        
+        <input type="email" id="email" name="email" placeholder="email"  required><br>
+</div>
+<div class="location">
+<div class="f" >
+        
+        <input type="text" id="state" name="state" placeholder="state" required><br>
+</div>
+<div class="f" >
+        
+        <input type="text" id="city" name="city" placeholder="city" required><br>
+</div>
+</div>
+<div class="f" >
+        
+        <input type="tel" id="phone" name="phone" placeholder="phone" oninput="checkInput()"  required><br>
+</div>
+<div class="f" >
+        
+        <input type="text" id="wifi" name="wifi" placeholder="city" required><br>
+</div>
+<div class="f" >
+        <label for="confirm">By clicking You agreed to terms&condition</label></br>
+        <input type="checkbox" id="confirmation" name="confirmation" placeholder="confirmation" required><br>
+</div>
+<div class="f" >
+        <label for="option">Travelling For Business Purpose</label>
+        <select id="option" name="option">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br>
+</div>
+<div class="button-flex">
+        <button id="button3" disabled type="button" onclick="callBothFunctions()">Submit</button>
+<div id="hiddenDiv">
+    <h2>Thank you for booking with Sewak.info</h2>
+  </div>
+<br>
+    <button id="button2" type="button" disabled onclick="showStep3()">Next</button>
+</div>
+</div>
+    </form>
+</div>
+
+
+
+ 
+
+<div id="step3" style="display: none;">
+    <h2>Step : Confirmation</h2>
+<div id="displayData"></div>
+<div id="reservationResultt"></div>
+    
+</div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      speed: 600,
+      parallax: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+
+<script>
+    function showDiv() {
+      var hiddenDiv = document.getElementById('hiddenDiv');
+      
+      // Show the div immediately
+      hiddenDiv.style.display = 'block';
+
+      // Trigger reflow and set opacity to 1 for smooth transition
+      hiddenDiv.offsetHeight;
+      hiddenDiv.style.opacity = '1';
+
+      // Set a timeout to hide the div after 2 seconds
+      setTimeout(function() {
+        hiddenDiv.style.opacity = '0';
+        setTimeout(function() {
+          hiddenDiv.style.display = 'none';
+        }, 500); // Wait for the transition to complete before hiding
+      }, 2000);
+    }
+  </script>
+
+<script>
+
+        function callcalculate() {
+            displaySelectedDate();
+            checkInputt();
+        }
+    </script>
+ <script>
+
+        function callBothFunctions() {
+            calculateTotal2();
+            displayData();
+            showDiv();
+            enableButtonss();
+        }
+    </script>
+ <script>
+
+        function callnextbutton() {
+            calculateTotal();
+            enableButtons();
+        }
+    </script>
+
+<script>
+    function calculateTotal2() {
+        var checkInDatee = document.getElementById("checkInDate").value;
+        var checkOutDatee = document.getElementById("checkOutDate").value;
+        var adultss = parseInt(document.getElementById("adults").value);
+        var childrenn = parseInt(document.getElementById("children").value);
+
+        var selectedDatessDivv = document.getElementById("reservationResultt");
+
+        if (checkInDatee && checkOutDatee) {
+            var nightlyCostt = 1000; // Adjust this as needed
+            var checkInn = new Date(checkInDatee);
+            var checkOutt = new Date(checkOutDatee);
+            var totalNightss = Math.ceil((checkOutt - checkInn) / (1000 * 60 * 60 * 24)); // Calculate total nights
+
+            var totalAmountt = nightlyCostt * totalNightss * (adultss + 0.3 * childrenn); // Adjust for children
+       selectedDatessDivv.innerHTML += generateFormDataItem('User Details',);
+      selectedDatessDivv.innerHTML += generateFormDataItem('Check-in', checkInDatee);
+             selectedDatessDivv.innerHTML += generateFormDataItem('Check-out ',  checkOutDatee);
+              selectedDatessDivv.innerHTML += generateFormDataItem('Adults ' , adultss );
+              selectedDatessDivv.innerHTML += generateFormDataItem('Children' , childrenn );
+              selectedDatessDivv.innerHTML += generateFormDataItem('Total Amount ₹', totalAmountt.toFixed(2));
+        } else {
+            alert("Please fill in both check-in and check-out dates.");
+        }
+    }
+</script>
+
+<script>
+    function showStep2() {
+        document.getElementById("step1").style.display = "none";
+        document.getElementById("step2").style.display = "block";
+        document.getElementById("reservationResult").style.display = "none";
+        document.querySelector(".step-dot:nth-child(1)").classList.add("completed");
+    }
+
+    function showStep3() {
+        document.getElementById("step2").style.display = "none";
+        document.getElementById("step3").style.display = "block";
+document.getElementById("reservationResult").style.display = "none";
+        document.querySelector(".step-dot:nth-child(2)").classList.add("completed");
+    }
+</script>
+ <script>
+        function displayData() {
+            var formData = {
+                wifi:document.getElementById('wifi').value,
+                name: document.getElementById('name').value,
+                surname: document.getElementById('surname').value,
+                email: document.getElementById('email').value,
+                state: document.getElementById('state').value,
+                city: document.getElementById('city').value,
+                phone: document.getElementById('phone').value,
+                confirmation: document.getElementById('confirmation').checked ? 'Yes' : 'No',
+                option: document.getElementById('option').value
+            };
+
+            var displayDiv = document.getElementById('displayData');
+            displayDiv.innerHTML +=generateFormDataItem('1.Dear', formData.name + ' ' + formData.surname);
+            displayDiv.innerHTML +=generateFormDataItem('2.Email', formData.email);
+            displayDiv.innerHTML +=generateFormDataItem ('3.State ', formData.state);
+            displayDiv.innerHTML +=generateFormDataItem('4.City ', formData.city);
+            displayDiv.innerHTML +=generateFormDataItem ('5.Phone Number ', formData.phone);
+            displayDiv.innerHTML +=generateFormDataItem ('6.Confirmation ' , formData.confirmation);
+            displayDiv.innerHTML +=generateFormDataItem ('7.Wifi ', formData.wifi);
+        }
+
+function displaySelectedDate() {
+        const datePicker = document.getElementById('checkInDate');
+        const displayDate = document.getElementById('displayDate');
+        
+        // Set the value of the displayDate input to the selected date
+        displayDate.value = datePicker.value;
+    }
+function displaySelectedDatee() {
+        const datePickerr = document.getElementById('checkOutDate');
+        const displayDatee = document.getElementById('displayDatee');
+        
+        // Set the value of the displayDate input to the selected date
+        displayDatee.value = datePickerr.value;
+    }
+
+function generateFormDataItem(label, value) {
+            return '<span class="formDataLabel">' + label + '</span> <span class="formDataValue">' + value + '</span><br><br>';
+        }
+    </script>
+<script>
+    function checkInput() {
+        var inputField = document.getElementById("phone");
+        var submitButton = document.getElementById("button3");
+
+        // Enable the button if the input field is not empty
+        submitButton.disabled = inputField.value.trim() === "";
+    }
+
+    function submitForm() {
+        // Perform actions when the button is clicked
+        alert("Form submitted!");
+    }
+</script>
+<script>
+    function checkInputt() {
+        var inputFieldd = document.getElementById("checkInDate");
+        var submitButtonn = document.getElementById("button4");
+
+        // Enable the button if the input field is not empty
+        submitButtonn.disabled = inputFieldd.value.trim() === "";
+    }
+
+     function submitForm() {
+        // Perform actions when the button is clicked
+        alert("Form submitted!");
+    }
+</script>
+ <script>
+        function enableButtons() {
+            var button1 = document.getElementById('button1');
+
+            button1.disabled = false;
+        }
+    </script>
+ <script>
+        function enableButtonss() {
+            var button2 = document.getElementById('button2');
+
+            button2.disabled = false;
+        }
+    </script>
+ <script>
+        function incrementNumber() {
+            var inputElement = document.getElementById('adults');
+            var currentValue = parseInt(inputElement.value, 10);
+
+            if (currentValue < 20) {
+                inputElement.value = currentValue + 1;
+            }
+        }
+    </script>
+<script>
+        function incrementNumberminus() {
+            var inputElementm = document.getElementById('adults');
+            var currentValuem = parseInt(inputElementm.value, 10);
+
+            if (currentValuem < 20) {
+                inputElementm.value = currentValuem - 1;
+            }
+        }
+    </script>
+<script>
+        function incrementNumbertwo() {
+            var inputElementt = document.getElementById('children');
+            var currentValuee = parseInt(inputElementt.value, 10);
+
+            if (currentValuee < 20) {
+                inputElementt.value = currentValuee + 1;
+            }
+        }
+    </script>
+<script>
+        function incrementNumberminustwo() {
+            var inputElementn = document.getElementById('children');
+            var currentValuen = parseInt(inputElementn.value, 10);
+
+            if (currentValuen < 20) {
+                inputElementn.value = currentValuen - 1;
+            }
+        }
+    </script>
+<script>
+    function calculateTotal() {
+        var checkInDate = new Date(document.getElementById('checkInDate').value);
+      var checkOutDate = new Date(document.getElementById('checkOutDate').value);
+        var adults = parseInt(document.getElementById("adults").value);
+        var children = parseInt(document.getElementById("children").value);
+
+        var selectedDatesDiv = document.getElementById("reservationResult");
+
+        if (checkInDate && checkOutDate) {
+            var nightlyCost = 1000; // Adjust this as needed
+            var checkIn = new Date(checkInDate);
+            var checkOut = new Date(checkOutDate);
+            var totalNights = Math.ceil((checkOut - checkIn) / (1000 * 60 * 60 * 24)); // Calculate total nights
+
+            var totalAmount = nightlyCost * totalNights * (adults + 0.3 * children); // Adjust for children
+
+            selectedDatesDiv.innerHTML += '<br><br><div class="c">CHECK-IN</div>'  + checkInDate + '<br><br>';
+            selectedDatesDiv.innerHTML += '<div class="c">CHECK-OUT</div>' + checkInDate + ',<br><br>';
+            selectedDatesDiv.innerHTML += '<div class="c">ADULT</div>' + adults + '<br><br>';
+            selectedDatesDiv.innerHTML += '<div class="c">CHILDREN</div>' + children + '<br><br>';
+            selectedDatesDiv.innerHTML += '<div class="c">TOTAL-AMOUNT ₹</div>' + totalAmount.toFixed(2) + '<br>';
+
+  
+        } else {
+            alert("Please fill in both check-in and check-out dates.");
+        }
+      
+    }
+</script>
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1} 
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none"; 
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block"; 
+  dots[slideIndex-1].className += " active";
+}
+</script>
+</body>
+</html>
