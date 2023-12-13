@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Form</title>
+</head>
+<style>
+#reservationResult{
+backgroundtomato;
+position:relative;
+top:30px;
+}
+#step3{
+backgroundtomato;
+position:fixed;
+width:100%;
+height:100vh;
+}
+#reservationResultt{
+position:relative;
+top:30px;
+}
+#displayData{
+border-bottom:2px solid black;
+}
+ .formDataLabel {
+            color: black; 
+            margin-right: 5px;
+position:absolute;
+left:10%;
+font-weight:bold;
+font-size:20px;
+
+        }
+
+        .formDataValue {
+            color: #333; 
+            margin-bottom: 10px;
+           position:absolute;
+left:30%;
+font-size:18px;
+        }
+
+
+
+
+ #hiddenDiv {
+      display: none;
+      background-color: lightblue;
+      padding: 20px;
+      margin-top: 20px;
+      transition: opacity 0.5s ease-in-out; /* Add a transition for opacity */
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:200px;
+height:200px;
+border-radius:50%;
+text-align:center;
+
+    }
+input{
+width:170px;
+height:30px;
+border:none;
+font-size:13px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+outline:none;
+}
+input[type="date"]{
+width:30px;
+height:30px;
+color:transparent;
+position:absolute;
+right:0;
+background-image:url("cal.jpeg");
+background-size:cover;
+border:1px solid black;
+filter:invert(100%);
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.flex{
+display:flex;
+gap:1rem;
+justify-content:center;
+}
+button{
+height:35px;
+border:none;
+position:relative;
+top:20px;
+font-size:14px;
+color:black;
+border-radius:10px;
+background:white;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+#myForm{
+display:grid;
+gap:1rem;
+}
+#myForm button{
+width:100px;
+}
+.f{
+display:flex;
+}
+#confirmation{
+height:20px;
+}
+#button4:disabled,#button3:disabled,#button2:disabled,#button1:disabled {
+            background-color: #D0D4CA;
+            color: darkgray;
+        }
+@media(max-width:768px){
+.flex{
+display:grid;
+}
+.formDataLabel {
+            color: black; 
+            margin-right: 5px;
+position:absolute;
+left:5%;
+font-weight:bold;
+font-size:13px;
+
+        }
+
+        .formDataValue {
+            color: #333; 
+            margin-bottom: 10px;
+           position:absolute;
+left:50%;
+font-size:13px;
+        }
+
+}
+</style>
+<body>
+<div id="step1">
+<h2>Reservation Details for hotel-1</h2>
+
+
+
+
+
+
+<form id="reservationForm">
+    <div class="flex">
+<div id="d" style="position:relative">
+<label for="checkInDate">Check-in Date</label><br>
+    <input type="date" id="checkInDate" onchange="callcalculate()" required>
+    <input type="text" id="displayDate" name="displayDate" placeholder="DD/MM/YY"  readonly>
+</div>
+
+<div id="d" style="position:relative">
+<label for="checkOutDate">Check-out Date</label><br>
+    <input type="date" id="checkOutDate" onchange="displaySelectedDatee()" required>
+    <input type="text" id="displayDatee" name="displayDate" placeholder="DD/MM/YY" readonly>
+   
+</div>
+ 
+
+<div>
+    <label for="adults">Adults</label><br>
+    <input type="number" id="adults" min="1" value="1" required>
+</div>
+<div>
+    <label for="children">Children</label><br>
+    <input type="number" id="children" min="0" value="0" required>
+</div>
+    <button id="button4"  type="button" disabled onclick="callnextbutton()">Calculate Total</button>
+
+<button id="button1" type="button" disabled onclick="showStep2()">Next</button>
+</div>
+</form>
+</div>
+<div id="reservationResult"></div>
+
+<div id="step2" style="display: none;">
+    <h2>Step 2 Additional Details</h2>
+
+ <form id="myForm">
+<div class="f">
+        
+        <input type="text" id="name" name="name" placeholder="Name"   required><br>
+</div>
+<div class="f" >
+        
+        <input type="text" id="surname" name="surname" placeholder="surname"  required><br>
+</div>
+<div class="f" >
+        
+        <input type="email" id="email" name="email" placeholder="email"  required><br>
+</div>
+<div class="f" >
+        
+        <input type="text" id="state" name="state" placeholder="state" required><br>
+</div>
+<div class="f" >
+        
+        <input type="text" id="city" name="city" placeholder="city" required><br>
+</div>
+<div class="f" >
+        
+        <input type="tel" id="phone" name="phone" placeholder="phone" oninput="checkInput()"  required><br>
+</div>
+<div class="f" >
+        
+        <input type="text" id="wifi" name="wifi" placeholder="city" required><br>
+</div>
+<div class="f" >
+        <label for="confirm">By clicking You agreed to terms&condition</label></br>
+        <input type="checkbox" id="confirmation" name="confirmation" placeholder="confirmation" required><br>
+</div>
+<div class="f" >
+        <label for="option">Travelling For Business Purpose</label>
+        <select id="option" name="option">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br>
+</div>
+        <button id="button3" disabled type="button" onclick="callBothFunctions()">Submit</button>
+    </form>
+
+  <div id="hiddenDiv">
+    <h2>Thank you for booking with Sewak.info</h2>
+  </div>
+<br>
+    <button id="button2" type="button" disabled onclick="showStep3()">Next</button>
+</div>
+
+<div id="step3" style="display: none;">
+    <h2>Step : Confirmation</h2>
+<div id="displayData"></div>
+<div id="reservationResultt"></div>
+    
+</div>
+
+ <script>
+    function showDiv() {
+      var hiddenDiv = document.getElementById('hiddenDiv');
+      
+      // Show the div immediately
+      hiddenDiv.style.display = 'block';
+
+      // Trigger reflow and set opacity to 1 for smooth transition
+      hiddenDiv.offsetHeight;
+      hiddenDiv.style.opacity = '1';
+
+      // Set a timeout to hide the div after 2 seconds
+      setTimeout(function() {
+        hiddenDiv.style.opacity = '0';
+        setTimeout(function() {
+          hiddenDiv.style.display = 'none';
+        }, 500); // Wait for the transition to complete before hiding
+      }, 2000);
+    }
+  </script>
+
+<script>
+
+        function callcalculate() {
+            displaySelectedDate();
+            checkInputt();
+        }
+    </script>
+ <script>
+
+        function callBothFunctions() {
+            calculateTotal2();
+            displayData();
+            showDiv();
+            enableButtonss();
+        }
+    </script>
+ <script>
+
+        function callnextbutton() {
+            calculateTotal();
+            enableButtons();
+        }
+    </script>
+<script>
+    function calculateTotal() {
+        var checkInDate = document.getElementById("checkInDate").value;
+        var checkOutDate = document.getElementById("checkOutDate").value;
+        var adults = parseInt(document.getElementById("adults").value);
+        var children = parseInt(document.getElementById("children").value);
+
+        var selectedDatesDiv = document.getElementById("reservationResult");
+
+        if (checkInDate && checkOutDate) {
+            var nightlyCost = 1000; // Adjust this as needed
+            var checkIn = new Date(checkInDate);
+            var checkOut = new Date(checkOutDate);
+            var totalNights = Math.ceil((checkOut - checkIn) / (1000 * 60 * 60 * 24)); // Calculate total nights
+
+            var totalAmount = nightlyCost * totalNights * (adults + 0.3 * children); // Adjust for children
+
+            selectedDatesDiv.innerHTML += generateFormDataItem('Check-in', checkInDate);
+             selectedDatesDiv.innerHTML += generateFormDataItem('Check-out ',  checkOutDate);
+              selectedDatesDiv.innerHTML += generateFormDataItem('Adults ' , adults );
+              selectedDatesDiv.innerHTML += generateFormDataItem('Children' , children );
+              selectedDatesDiv.innerHTML += generateFormDataItem('Total Amount ₹', totalAmount.toFixed(2));
+        } else {
+            alert("Please fill in both check-in and check-out dates.");
+        }
+    }
+</script>
+<script>
+    function calculateTotal2() {
+        var checkInDatee = document.getElementById("checkInDate").value;
+        var checkOutDatee = document.getElementById("checkOutDate").value;
+        var adultss = parseInt(document.getElementById("adults").value);
+        var childrenn = parseInt(document.getElementById("children").value);
+
+        var selectedDatessDivv = document.getElementById("reservationResultt");
+
+        if (checkInDatee && checkOutDatee) {
+            var nightlyCostt = 1000; // Adjust this as needed
+            var checkInn = new Date(checkInDatee);
+            var checkOutt = new Date(checkOutDatee);
+            var totalNightss = Math.ceil((checkOutt - checkInn) / (1000 * 60 * 60 * 24)); // Calculate total nights
+
+            var totalAmountt = nightlyCostt * totalNightss * (adultss + 0.3 * childrenn); // Adjust for children
+
+      selectedDatessDivv.innerHTML += generateFormDataItem('Check-in', checkInDatee);
+             selectedDatessDivv.innerHTML += generateFormDataItem('Check-out ',  checkOutDatee);
+              selectedDatessDivv.innerHTML += generateFormDataItem('Adults ' , adultss );
+              selectedDatessDivv.innerHTML += generateFormDataItem('Children' , childrenn );
+              selectedDatessDivv.innerHTML += generateFormDataItem('Total Amount ₹', totalAmountt.toFixed(2));
+        } else {
+            alert("Please fill in both check-in and check-out dates.");
+        }
+    }
+</script>
+
+<script>
+    function showStep2() {
+        document.getElementById("step1").style.display = "none";
+        document.getElementById("step2").style.display = "block";
+        document.getElementById("reservationResult").style.display = "none";
+        document.querySelector(".step-dot:nth-child(1)").classList.add("completed");
+    }
+
+    function showStep3() {
+        document.getElementById("step2").style.display = "none";
+        document.getElementById("step3").style.display = "block";
+document.getElementById("reservationResult").style.display = "none";
+        document.querySelector(".step-dot:nth-child(2)").classList.add("completed");
+    }
+</script>
+ <script>
+        function displayData() {
+            var formData = {
+                wifi:document.getElementById('wifi').value,
+                name: document.getElementById('name').value,
+                surname: document.getElementById('surname').value,
+                email: document.getElementById('email').value,
+                state: document.getElementById('state').value,
+                city: document.getElementById('city').value,
+                phone: document.getElementById('phone').value,
+                confirmation: document.getElementById('confirmation').checked ? 'Yes' : 'No',
+                option: document.getElementById('option').value
+            };
+
+            var displayDiv = document.getElementById('displayData');
+            displayDiv.innerHTML +=generateFormDataItem('1.Dear', formData.name + ' ' + formData.surname);
+            displayDiv.innerHTML +=generateFormDataItem('2.Email', formData.email);
+            displayDiv.innerHTML +=generateFormDataItem ('3.State ', formData.state);
+            displayDiv.innerHTML +=generateFormDataItem('4.City ', formData.city);
+            displayDiv.innerHTML +=generateFormDataItem ('5.Phone Number ', formData.phone);
+            displayDiv.innerHTML +=generateFormDataItem ('6.Confirmation ' , formData.confirmation);
+            displayDiv.innerHTML +=generateFormDataItem ('7.Wifi ', formData.wifi);
+        }
+
+function displaySelectedDate() {
+        const datePicker = document.getElementById('checkInDate');
+        const displayDate = document.getElementById('displayDate');
+        
+        // Set the value of the displayDate input to the selected date
+        displayDate.value = datePicker.value;
+    }
+function displaySelectedDatee() {
+        const datePickerr = document.getElementById('checkOutDate');
+        const displayDatee = document.getElementById('displayDatee');
+        
+        // Set the value of the displayDate input to the selected date
+        displayDatee.value = datePickerr.value;
+    }
+
+function generateFormDataItem(label, value) {
+            return '<span class="formDataLabel">' + label + '</span> <span class="formDataValue">' + value + '</span><br><br>';
+        }
+    </script>
+<script>
+    function checkInput() {
+        var inputField = document.getElementById("phone");
+        var submitButton = document.getElementById("button3");
+
+        // Enable the button if the input field is not empty
+        submitButton.disabled = inputField.value.trim() === "";
+    }
+
+    function submitForm() {
+        // Perform actions when the button is clicked
+        alert("Form submitted!");
+    }
+</script>
+<script>
+    function checkInputt() {
+        var inputFieldd = document.getElementById("checkInDate");
+        var submitButtonn = document.getElementById("button4");
+
+        // Enable the button if the input field is not empty
+        submitButtonn.disabled = inputFieldd.value.trim() === "";
+    }
+
+     function submitForm() {
+        // Perform actions when the button is clicked
+        alert("Form submitted!");
+    }
+</script>
+ <script>
+        function enableButtons() {
+            var button1 = document.getElementById('button1');
+
+            button1.disabled = false;
+        }
+    </script>
+ <script>
+        function enableButtonss() {
+            var button2 = document.getElementById('button2');
+
+            button2.disabled = false;
+        }
+    </script>
+</body>
+</html>
