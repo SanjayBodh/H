@@ -31,18 +31,26 @@ app.post('/', (req, res) => {
         subject: `Thank you  ${req.body.name}\n Email ${req.body.email}`,
         text: `Name: ${req.body.name}\n\nEmail: ${req.body.email}\n\nAdhar No: ${req.body.subject}\n\nPancard No: ${req.body.message}\n\nDOB: ${req.body.date}\n\nAddress: ${req.body.address}\n\nPincode: ${req.body.pincode}\n\nAmount: ${req.body.amount}`
     };
-      const mailOptions = {
-        from: 'mohitboy112@gmail.com', // Sender address
+     const mailOptionsReceiver = {
+        from: 'mohitboy112@gmail.com',
         to: 'mohitboy112@gmail.com', // Receiver's email obtained from the form
-        subject: `New user  ${req.body.name}\n\n Email ${req.body.email}`,
-        text: `Name: ${req.body.name}\n\nEmail: ${req.body.email}\n\nAdhar No: ${req.body.subject}\n\nPancard No: ${req.body.message}\n\nDOB: ${req.body.date}\n\nAddress: ${req.body.address}\n\nPincode: ${req.body.pincode}\n\nAmount: ${req.body.amount}`
-    };
+        subject: `User  ${req.body.name}`,
+        text: `New User ${req.body.name},\n\nDone the  submission. We have received the following information:\n\nName: ${req.body.name}\n\nEmail: ${req.body.email}\n\nAdhar No: ${req.body.subject}\n\nPancard No: ${req.body.message}\n\nDOB: ${req.body.date}\n\nAddress: ${req.body.address}\n\nPincode: ${req.body.pincode}\n\nAmount: ${req.body.amount}`
+    };   
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
             console.log(error);
             res.send('error');
         } else {
             console.log('Email sent: ' + info.response);
+            res.send('success');
+        }
+    });
+    transporter.sendMail(mailOptionsReceiver, (error, info) => {
+        if (error) {
+            console.log("Error sending email to receiver:", error);
+            res.send('error');
+        } else {
             res.send('success');
         }
     });
