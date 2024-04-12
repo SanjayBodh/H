@@ -1,7 +1,7 @@
 {
   "name": "HP360",
   "short_name": "Himachal360",
-  "start_url": "public/form.html",
+  "start_url": "index.js",
   "display": "standalone",
   "background_color": "#fff",
   "theme_color": "#fff",
