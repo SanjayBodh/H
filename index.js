@@ -31,7 +31,12 @@ app.post('/', (req, res) => {
         subject: `Thank you  ${req.body.name}\n Email ${req.body.email}`,
         text: `Name: ${req.body.name}\n\nEmail: ${req.body.email}\n\nAdhar No: ${req.body.subject}\n\nPancard No: ${req.body.message}\n\nDOB: ${req.body.date}\n\nAddress: ${req.body.address}\n\nPincode: ${req.body.pincode}\n\nAmount: ${req.body.amount}`
     };
-
+      const mailOptions = {
+        from: 'mohitboy112@gmail.com', // Sender address
+        to: 'mohitboy112@gmail.com', // Receiver's email obtained from the form
+        subject: `New user  ${req.body.name}\n\n Email ${req.body.email}`,
+        text: `Name: ${req.body.name}\n\nEmail: ${req.body.email}\n\nAdhar No: ${req.body.subject}\n\nPancard No: ${req.body.message}\n\nDOB: ${req.body.date}\n\nAddress: ${req.body.address}\n\nPincode: ${req.body.pincode}\n\nAmount: ${req.body.amount}`
+    };
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
             console.log(error);
