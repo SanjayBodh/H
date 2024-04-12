@@ -4,7 +4,7 @@ const CACHE_NAME = 'my-pwa-cache-v1';
 // Files to cache
 const urlsToCache = [
   '/',
-  'index.html',
+  'public/form.html',
   'manifest.json',
   'icon-192x192.png',
   'icon-512x512.png'
